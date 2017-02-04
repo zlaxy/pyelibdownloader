@@ -39,6 +39,9 @@ lastindex = int(lastindex)
 while index <= lastindex:
     filename = str(index) + "." + extension
     url = prefix + str(index) + postfix
-    wget.download(url,out=filename)
+    try:
+      wget.download(url,out=filename)
+    except:
+      print ("...skipped...")
     index = index + 1
 print ("Donwload finished.")
